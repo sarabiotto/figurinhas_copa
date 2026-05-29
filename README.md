@@ -1,0 +1,1 @@
+# figurinhas_copa
