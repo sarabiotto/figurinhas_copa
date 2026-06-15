@@ -27,3 +27,18 @@ album.listar()
 
 print("\n--- Porcentagem (supondo álbum de 10 figurinhas) ---")
 print(f"{album.porcentagem(10):.1f}% concluído")  
+
+print("\n=== TESTE DE REPETIDAS ===")
+album2 = Album()
+
+album2.adicionar(Figurinha(1, "Vinícius Jr.", "Brasil", "Atacante", "ouro"))
+album2.adicionar(Figurinha(2, "Messi", "Argentina", "Atacante", "lendária"))
+
+
+album2.adicionar(Figurinha(1, "Vinícius Jr.", "Brasil", "Atacante", "ouro"))
+album2.adicionar(Figurinha(1, "Vinícius Jr.", "Brasil", "Atacante", "ouro"))
+album2.adicionar(Figurinha(2, "Messi", "Argentina", "Atacante", "lendária"))
+
+print("--- Repetidas ---")
+album2.listar_repetidas()
+print("Total de repetidas:", album2.contar_repetidas())   
