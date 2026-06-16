@@ -58,6 +58,7 @@ print("\n--- Por jogador ('vini') ---")
 imprimir_lista(album3.buscar_por_jogador("vini"))
 
 print("\n--- Por seleção ('Brasil') ---")
+
 imprimir_lista(album3.buscar_por_selecao("Brasil"))
 
 print("\n=== TESTE DA FILA FIFO ===")
@@ -79,3 +80,32 @@ hist = Historico()
 hist.registrar("Troca: dei a #1 e recebi a #5")
 hist.registrar("Bafo: ganhei 3 figurinhas do João")
 hist.listar()
+
+print("\n=== TESTE DE TROCAS ===")
+from trocas import efetuar_troca
+
+hist_trocas = Historico()
+
+# Ana tem a #5 repetida
+ana = Album()
+ana.adicionar(Figurinha(1, "Alisson", "Brasil", "Goleiro", "prata"))
+ana.adicionar(Figurinha(5, "Neymar", "Brasil", "Atacante", "ouro"))
+ana.adicionar(Figurinha(5, "Neymar", "Brasil", "Atacante", "ouro"))  
+
+
+bruno = Album()
+bruno.adicionar(Figurinha(1, "Alisson", "Brasil", "Goleiro", "prata"))
+bruno.adicionar(Figurinha(9, "Haaland", "Noruega", "Atacante", "ouro"))
+bruno.adicionar(Figurinha(9, "Haaland", "Noruega", "Atacante", "ouro"))  
+
+print("--- Troca válida: Ana quer a #9, Bruno quer a #5 ---")
+efetuar_troca(ana, bruno, 9, 5, hist_trocas)
+
+print("\nÁlbum da Ana agora:")
+ana.listar()  
+
+print("\n--- Troca inválida: ninguém tem a #99 repetida ---")
+efetuar_troca(ana, bruno, 99, 5, hist_trocas)
+
+print("\n--- Histórico das trocas ---")
+hist_trocas.listar()
