@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nome": "Alisson",
+        "pais": "Brasil",
+        "posicao": "Goleiro",
+        "raridade": "prata"
+    },
+    {
+        "id": 5,
+        "nome": "Neymar",
+        "pais": "Brasil",
+        "posicao": "Atacante",
+        "raridade": "ouro"
+    },
+    {
+        "id": 9,
+        "nome": "Haaland",
+        "pais": "Noruega",
+        "posicao": "Atacante",
+        "raridade": "ouro"
+    }
+]
