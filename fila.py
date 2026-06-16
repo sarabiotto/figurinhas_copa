@@ -19,7 +19,7 @@ class Fila:
             self._inicio = novo
             self._fim = novo
         else:
-            self._fim.proximo = novo   l
+            self._fim.proximo = novo
             self._fim = novo           
         self._tamanho += 1
 
@@ -29,7 +29,7 @@ class Fila:
             return None
         no = self._inicio
         self._inicio = self._inicio.proximo
-        if self._inicio is None:       m
+        if self._inicio is None:      
             self._fim = None
         self._tamanho -= 1
         return no.figurinha
