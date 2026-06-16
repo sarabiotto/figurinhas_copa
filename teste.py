@@ -109,3 +109,16 @@ efetuar_troca(ana, bruno, 99, 5, hist_trocas)
 
 print("\n--- Histórico das trocas ---")
 hist_trocas.listar()
+
+print("\n=== TESTE DE PERSISTÊNCIA ===")
+from persistencia import salvar, carregar
+
+# salva o álbum da Ana num arquivo
+salvar(ana, "album_ana.json")
+
+# cria um álbum novo e carrega do arquivo
+ana_carregada = Album()
+carregar(ana_carregada, "album_ana.json")
+
+print("\nÁlbum recarregado do arquivo:")
+ana_carregada.listar()
