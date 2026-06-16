@@ -3,11 +3,12 @@ from nodos import NodoLista
 
 class Album:
 
+
     def __init__(self):
-        self._cabeca = None        # primeiro nó do álbum
-        self._tamanho = 0          # quantas figurinhas no álbum
-        self._rep_cabeca = None    # primeira repetida (lista separada)
-        self._rep_tamanho = 0      # quantas repetidas no total
+        self._cabeca = None        
+        self._tamanho = 0          
+        self._rep_cabeca = None    
+        self._rep_tamanho = 0      
 
     def buscar(self, id):
 
@@ -95,15 +96,16 @@ class Album:
             atual = atual.proximo
 
     def contar_repetidas(self):
-        
+
         return self._rep_tamanho
+
     def buscar_por_jogador(self, nome):
+
         resultado_cabeca = None
         resultado_fim = None
 
         atual = self._cabeca
         while atual is not None:
-            # .lower() pra ignorar maiúscula/minúscula na comparação
             if nome.lower() in atual.figurinha.nome.lower():
                 novo = NodoLista(atual.figurinha)
                 if resultado_cabeca is None:
@@ -134,7 +136,39 @@ class Album:
             atual = atual.proximo
 
         return resultado_cabeca
-    
+
+    def tem_repetida(self, id):
+
+        atual = self._rep_cabeca
+        while atual is not None:
+            if atual.figurinha.id == id:
+                return True
+            atual = atual.proximo
+        return False
+
+    def remover_repetida(self, id):
+
+        if self._rep_cabeca is None:
+            return None
+
+        if self._rep_cabeca.figurinha.id == id:
+            no = self._rep_cabeca
+            self._rep_cabeca = self._rep_cabeca.proximo
+            self._rep_tamanho -= 1
+            return no.figurinha
+
+        anterior = self._rep_cabeca
+        atual = self._rep_cabeca.proximo
+        while atual is not None:
+            if atual.figurinha.id == id:
+                anterior.proximo = atual.proximo
+                self._rep_tamanho -= 1
+                return atual.figurinha
+            anterior = atual
+            atual = atual.proximo
+        return None
+
+
 def imprimir_lista(cabeca):
 
     if cabeca is None:
