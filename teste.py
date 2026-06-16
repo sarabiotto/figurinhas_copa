@@ -59,3 +59,23 @@ imprimir_lista(album3.buscar_por_jogador("vini"))
 
 print("\n--- Por seleção ('Brasil') ---")
 imprimir_lista(album3.buscar_por_selecao("Brasil"))
+
+print("\n=== TESTE DA FILA FIFO ===")
+from fila import Fila
+
+fila = Fila()
+fila.enqueue(Figurinha(1, "Vinícius Jr.", "Brasil", "Atacante", "ouro"))
+fila.enqueue(Figurinha(2, "Messi", "Argentina", "Atacante", "lendária"))
+
+print("Quem está na frente (peek):", fila.peek())    
+print("Saiu (dequeue):", fila.dequeue())             
+print("Saiu (dequeue):", fila.dequeue())             
+print("Saiu de novo:", fila.dequeue())               
+
+print("\n=== TESTE DO HISTÓRICO ===")
+from historico import Historico
+
+hist = Historico()
+hist.registrar("Troca: dei a #1 e recebi a #5")
+hist.registrar("Bafo: ganhei 3 figurinhas do João")
+hist.listar()
