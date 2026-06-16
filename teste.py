@@ -42,3 +42,20 @@ album2.adicionar(Figurinha(2, "Messi", "Argentina", "Atacante", "lendária"))
 print("--- Repetidas ---")
 album2.listar_repetidas()
 print("Total de repetidas:", album2.contar_repetidas())   
+
+print("\n=== TESTE DE BUSCAS ===")
+from album import imprimir_lista
+
+album3 = Album()
+album3.adicionar(Figurinha(1, "Vinícius Jr.", "Brasil", "Atacante", "ouro"))
+album3.adicionar(Figurinha(2, "Casemiro", "Brasil", "Volante", "prata"))
+album3.adicionar(Figurinha(3, "Messi", "Argentina", "Atacante", "lendária"))
+
+print("--- Por número (#2) ---")
+print(album3.buscar(2))
+
+print("\n--- Por jogador ('vini') ---")
+imprimir_lista(album3.buscar_por_jogador("vini"))
+
+print("\n--- Por seleção ('Brasil') ---")
+imprimir_lista(album3.buscar_por_selecao("Brasil"))
